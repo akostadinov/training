@@ -3146,9 +3146,8 @@ You will need to ensure the following, or fix the following:
 * Your `cloudapps` domain points to the correct node ip in `dnsmasq.conf`
 * Each of your systems has the same `/etc/hosts` file
 * Your master and nodes `/etc/resolv.conf` points to the IP address of the node
-  running DNSMasq as the first nameserver
-* The second nameserver in `/etc/resolv.conf` on the node running dnsmasq points
-  to your corporate or upstream DNS resolver (eg: Google DNS @ 8.8.8.8)
+  running DNSMasq (e.g. nameserver=192.168.133.2)
+* `dnsmasq.conf` on the node running dnsmasq should contain as forward servers the namesers from the original `/etc/resolv.conf` or your corporate or upstream DNS resolver (eg: server=8.8.8.8 /the Google DNS/)
 * That you also open port 53 (UDP) to allow DNS queries to hit the node
 
 Following this setup for dnsmasq will ensure that your wildcard domain works,
